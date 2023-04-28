@@ -15,7 +15,7 @@ root.geometry("1300x900")
 root.title("Poly`s Notes")
 
 # Add image file
-bg = PhotoImage( file = "flora.png")
+bg = PhotoImage( file = "img/flora.png")
 
 # Show image using label
 label1 = Label( root, image = bg)
@@ -27,29 +27,37 @@ def change_image(filename):
     label1.configure(image = bg,width=1300, height=900)
 
 def flora():
-    change_image("flora.png")
+    change_image("img/flora.png")
+    text.configure(bg="#d5ebd6", fg="#112e1a",font=("Helvetica", 16))
+  
 
 def enot():
-    change_image("enot.png")
+    change_image("img/enot.png")
+    text.configure(bg="#c5b3dd", fg="#211432", font=("Nimbus Sans", 16))
 
 def plast():
-    change_image("plast.png")
+    change_image("img/plast.png")
+    text.configure(bg="#DBD5BE", fg="#2c291c", font=("Liberation Serif", 16))
+
 
 def poly():
-    change_image("poly.png")
+    change_image("img/poly.png")
+    text.configure(bg="#9998c9", fg="#1b1a2e",font=("Fira Sans", 16))
 
 def okto():
-    change_image("okto.png")
+    change_image("img/okto.png")
+    text.configure(bg="#c6e5e2", fg="131124",  font=("Iosevka Nerd Font Medium", 16))
 
 def catdog():
-    change_image("cat-dog.png")
+    change_image("img/cat-dog.png")
+    text.configure(bg="#e5b8d1", fg="#36232e",font=("Fantasque Sans Mono", 16))
 
 
 
 
 def text_parce():
     tt = text.get("1.0", "end-1c")
-    tts = gTTS(tt)
+    tts = gTTS(tt, lang='ru', slow=False)
     tts.save("text.mp3")
     playsound("text.mp3")
     os.remove("text.mp3")
@@ -61,13 +69,13 @@ def text_clear():
 
 def text_save():
     tt = text.get("1.0", "end-1c")
-    with open(f"/home/alex/documents/poly_notes/text_note{dt.now()}.txt", "w") as file:
+    with open(f"text/text_note{dt.now()}.txt", "w") as file:
         file.write(tt)
 
 def voice_save():
     tt = text.get("1.0", "end-1c")
-    tts = gTTS(tt)
-    tts.save(f"/home/alex/music/poly_notes/voice{dt.now()}.mp3")
+    tts = gTTS(tt, lang='ru', slow=False)
+    tts.save(f"music/poly_notes/voice{dt.now()}.mp3")
 
 
 
@@ -116,11 +124,10 @@ button18.grid(row = 0, column = 3, padx=10,sticky = "ne")
 
 
 
-text = Text(frame3,width=80, height=30, bg="gray", fg='#212121', font=("Helvetica", 16), wrap=WORD)
+text = Text(frame3,width=80, height=30, bg="#FAFAEB", fg='#212121', font=("Helvetica", 16), wrap=WORD)
 text.grid(row=0, column=0, columnspan=2, sticky="nsew")
-root.attributes('-alpha', 0.2)
-#root.attributes('-alpha', 0.3)
-text.configure(bg='gray75')
+root.attributes('-alpha', 0.5)
+#text.configure(bg='gray75')
 # Add scrollbar
 # Execute tkinter
 root.mainloop()
