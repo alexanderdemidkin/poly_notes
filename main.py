@@ -63,6 +63,21 @@ def text_parce():
     os.remove("text.mp3")
 
 
+def text_parce_en():
+    tt = text.get("1.0", "end-1c")
+    tts = gTTS(tt, lang='en', slow=False)
+    tts.save("text.mp3")
+    playsound("text.mp3")
+    os.remove("text.mp3")
+
+def text_parce_fr():
+    tt = text.get("1.0", "end-1c")
+    tts = gTTS(tt, lang='fr', slow=False)
+    tts.save("text.mp3")
+    playsound("text.mp3")
+    os.remove("text.mp3")
+
+
 def text_clear():
     text.delete("1.0", "end")
 
@@ -109,18 +124,24 @@ button6 = Button( frame1, text = "Кошечки-собачки", command = catd
 button6.grid(row = 0, column = 5, padx=5,sticky = "nw")
 
 
-button14 = Button( frame2, text = "Озвучить", command= text_parce)
-button14.grid(row = 0, column = 0, padx=10,sticky = "ne")
+button12 = Button( frame2, text = "Озвучить Ru", command= text_parce)
+button12.grid(row = 0, column = 0, padx=10,sticky = "ne")
+
+button13 = Button( frame2, text = "Озвучить Fr", command= text_parce_fr)
+button13.grid(row = 0, column = 1, padx=10,sticky = "ne")
+
+button14 = Button( frame2, text = "Озвучить En", command= text_parce_en)
+button14.grid(row = 0, column = 2, padx=10,sticky = "ne")
 
 button15 = Button( frame2, text = "Сохранить текст", command=text_save)
-button15.grid(row = 0, column = 1, padx=10,sticky = "ne")
+button15.grid(row = 0, column = 3, padx=10,sticky = "ne")
 
 button15 = Button( frame2, text = "Сохранить голос", command=voice_save)
-button15.grid(row = 0, column = 2, padx=10,sticky = "ne")
+button15.grid(row = 0, column = 4, padx=10,sticky = "ne")
 
 
 button18 = Button( frame2, text = "Очистить", command=text_clear)
-button18.grid(row = 0, column = 3, padx=10,sticky = "ne")
+button18.grid(row = 0, column = 5, padx=10,sticky = "ne")
 
 
 
